@@ -4,6 +4,7 @@ let boxes = document.querySelectorAll(".box")
 let buttons = document.querySelectorAll('#buttons-container button')
 let messageContainer = document.getElementById('message')
 let messageText = document.querySelector('#message p')
+let container = document.querySelector("#container")
 let secondPlayer;
 
 // Contador de jogadas
@@ -20,8 +21,6 @@ for (let i = 0; i < buttons.length; i++) {
         }
 
         setTimeout(() => {
-            let container = document.querySelector("#container")
-
             container.classList.remove('hide')
         }, 100)
     })
@@ -201,13 +200,17 @@ function declareWinner(winner) {
         msg = 'Deu Velha'
     }
 
+
+
     // Exibe mensagem
     messageText.innerHTML = msg;
     messageContainer.classList.remove('hide');
+    container.classList.add('hide')
 
     // Esconde mensagem
     setTimeout(() => {
         messageContainer.classList.add('hide')
+        container.classList.remove('hide')
     }, 3000)
 
     // Zerar jogadas
